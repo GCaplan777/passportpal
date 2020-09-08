@@ -9,7 +9,7 @@ express.use(express.json());
 express.use(urlencoded({ extended: true }));
 
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost:27017/google_book',
+  process.env.MONGODB_URI || 'mongodb://localhost:27017/passportpal',
   {
     useCreateIndex: true,
     useNewUrlParser: true,
