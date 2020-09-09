@@ -1,23 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-var fs = require('fs');
-var mongoose = require("mongoose");
-var Grid = require('gridfs-stream');
-var GridFS = Grid(mongoose.connection.db, mongoose.mongo);
-
-function putFile(path, name, callback) {
-    var writestream = GridFS.createWriteStream({
-        filename: name
-    });
-    writestream.on('close', function (file) {
-      callback(null, file);
-    });
-    fs.createReadStream(path).pipe(writestream);
+export default class UploadFile extends Component {
+    render() {
+        return (
+            <div className="container">
+                <div className="row">
+                    <form>
+                        <h3>React File Upload</h3>
+                        <div className="form-group">
+                            <input type="file" />
+                        </div>
+                        <div className="form-group">
+                            <button className="btn btn-primary" type="submit">Upload</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        )
+    }
 }
-
-const Home = () => {
-  return <div>Hello world</div>;
-};
-
-export default Home;
-
