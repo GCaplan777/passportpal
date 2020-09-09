@@ -5,9 +5,11 @@ const { urlencoded } = require('express');
 const app = express();
 
 const PORT = process.env.PROT || 8000;
+const api = require('./routes/user.routes')
 
 app.use(express.json());
 app.use(urlencoded({ extended: true }));
+app.use('/api', api)
 
 mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost:27017/passportpal',
