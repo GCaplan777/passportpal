@@ -18,6 +18,9 @@ mongoose.connect(
   }
 );
 
+// Define Routes
+app.use('/api/auth', require('./routes/auth'));
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.resolve(__dirname, 'client', 'build')));
 
