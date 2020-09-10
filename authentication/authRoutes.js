@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const passport = require("passport");
 const userController = require("../controllers/userController");
 
-// /* POST login. */ i deleted "next?"
+// /* POST login. */
 Router.post("/login", function (req, res) {
   passport.authenticate("local", { session: false }, (err, user, info) => {
     console.log("user info", user);
