@@ -1,6 +1,7 @@
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const passportJWT = require('passport-jwt');
+const bcrypt = require('bcryptjs');
 const JWTStrategy = passportJWT.Strategy;
 const ExtractJWT = passportJWT.ExtractJwt;
 const db = require('../models');
@@ -14,12 +15,19 @@ passport.use(
     },
     function (email, password, cb) {
       //this one is typically a DB call. Assume that the returned user object is pre-formatted and ready for storing in JWT
-      return db.User.findOne({ email, password })
+      return db.User.findOne({ email })
         .then((user) => {
           if (!user) {
-            return cb(null, false, { message: 'Incorrect email or password.' });
+            return cb(null, false, { message: 'User not found' });
           }
-          return cb(null, user, { message: 'Logged In Successfully' });
+
+          bcrypt.compare(password, user.password).then((res) => {
+            if (res) {
+              return cb(null, user, { message: 'Logged In Successfully' });
+            } else {
+              return cb(null, false, { message: 'Invalid password' });
+            }
+          });
         })
         .catch((err) => cb(err));
     }
