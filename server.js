@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const { urlencoded } = require('express');
 const routes = require('./routes');
 
-const PORT = process.env.PROT || 8000;
+const PORT = process.env.PORT || 8000;
 
 // init server
 const app = express();
