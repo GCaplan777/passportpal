@@ -1,19 +1,17 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-const { urlencoded } = require('express');
 const routes = require('./routes');
-
+const app = express();
 const PORT = process.env.PORT || 8000;
 
 // init server
-const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
 // middleware
 app.use(express.json());
-app.use(urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 // database connection
 mongoose.connect(
