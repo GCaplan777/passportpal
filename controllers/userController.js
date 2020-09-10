@@ -5,13 +5,14 @@ const bcrypt = require('bcryptjs');
 module.exports = {
   createNew: async (req, res) => {
     console.log(req.body);
-    const { email, password } = req.body;
+    const { name, email, password } = req.body;
 
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(password, salt);
 
     const newUser = await db.User.create({
-      email: email,
+      name,
+      email,
       password: hashedPassword,
     });
 
@@ -30,7 +31,7 @@ module.exports = {
       (err, token) => {
         if (err) console.error(err);
 
-        res.json({ token });
+        res.json({ name, token });
       }
     );
   },
