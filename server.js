@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // routes
-app.use('/', routes);
+app.use(routes);
 
 // init socket
 io.on('connect', (socket) => {
