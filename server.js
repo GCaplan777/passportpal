@@ -3,7 +3,6 @@ const path = require('path');
 const mongoose = require('mongoose');
 const { urlencoded } = require('express');
 const routes = require('./routes');
-const passport = require('./authentication/passport');
 
 const PORT = process.env.PROT || 8000;
 
