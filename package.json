@@ -16,10 +16,6 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/GCaplan777/passportpal.git"
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
