@@ -26,6 +26,7 @@ const reducer = (state, action) => {
 const GlobalProvider = ({ value = [], ...props }) => {
   const [state, dispatch] = useReducer(reducer, {
     user: {},
+    welcomeMessage: "",
   });
   return <Provider value={[state, dispatch]} {...props} />;
 };
