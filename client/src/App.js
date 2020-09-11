@@ -6,6 +6,7 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import PrivateRoute from './pages/PrivateRoute';
 import Chat from './pages/Chat';
+import UploadFile from './pages/UploadFile';
 
 function App() {
   return (
