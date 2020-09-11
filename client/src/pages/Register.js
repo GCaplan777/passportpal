@@ -1,7 +1,7 @@
-import React, { useRef, useContext } from 'react';
-import authContext from '../context/auth/authContext';
-import { LOGIN } from '../context/actions';
-import axios from 'axios';
+import React, { useRef, useContext } from "react";
+import authContext from "../context/auth/authContext";
+import { LOGIN } from "../context/actions";
+import axios from "axios";
 
 const Register = () => {
   const { register } = useContext(authContext);
