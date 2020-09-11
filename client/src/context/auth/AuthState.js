@@ -11,8 +11,6 @@ const AuthState = ({ ...props }) => {
 
   //register
   const register = async ({ email, password, name }) => {
-    console.log(email, password);
-
     const { data } = await axios.post('/auth/register', {
       email,
       password,
@@ -31,7 +29,6 @@ const AuthState = ({ ...props }) => {
       email,
       password,
     });
-    console.log(data);
 
     dispatch({
       type: LOGIN,
