@@ -5,7 +5,6 @@ const socket = io();
 
 const Chat = () => {
   const [chats, setChats] = useState([]);
-
   const nameRef = useRef();
   const msgRef = useRef();
 
