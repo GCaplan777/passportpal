@@ -1,19 +1,17 @@
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
-const { urlencoded } = require('express');
 const routes = require('./routes');
-
-const PORT = process.env.PROT || 8000;
+const app = express();
+const PORT = process.env.PORT || 8000;
 
 // init server
-const app = express();
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 
 // middleware
 app.use(express.json());
-app.use(urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: true }));
 
 // database connection
 mongoose.connect(
@@ -30,7 +28,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // routes
-app.use('/', routes);
+app.use(routes);
 
 // init socket
 io.on('connect', (socket) => {
