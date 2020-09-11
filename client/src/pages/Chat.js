@@ -1,4 +1,11 @@
 import React, { useEffect, useRef, useState } from 'react';
+import {
+  Input,
+  FormControl,
+  InputLabel,
+  FormGroup,
+  Card,
+} from '@material-ui/core';
 import io from 'socket.io-client';
 
 const socket = io();
@@ -9,6 +16,7 @@ const Chat = () => {
   const msgRef = useRef();
 
   useEffect(() => {
+    console.log(JSON.parse(localStorage.getItem('user')).token);
     socket.on('message', (message) => {
       setChats((chats) => [...chats, message]);
     });
@@ -28,19 +36,31 @@ const Chat = () => {
 
   return (
     <>
+      <Card></Card>
       <form onSubmit={handleSumbit}>
-        <div className="form-group">
-          <input
-            ref={nameRef}
-            className="form-control"
+        <FormControl>
+          <Input
+            inputRef={nameRef}
             name="name"
             type="text"
             placeholder="name"
+            required="true"
           />
-        </div>
-        <div className="form-group">
-          <input ref={msgRef} className="form-control" name="message" placeholder="message" />
-        </div>
+        </FormControl>
+        <FormGroup>
+          <FormControl margin="normal">
+            <InputLabel htmlFor="msg">Message</InputLabel>
+            <Input
+              id="msg"
+              inputRef={msgRef}
+              name="message"
+              type="text"
+              placeholder="message"
+              required="true"
+            />
+          </FormControl>
+        </FormGroup>
+
         <button type="submit">submit</button>
       </form>
       <div>
