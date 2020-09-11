@@ -6,12 +6,15 @@ import Chat from "./pages/Chat";
 import AuthenticatedApp from "./components/AuthenticatedApp";
 import UnauthenticatedApp from "./components/AuthenticatedApp";
 
+import { LOGIN } from "./context/actions";
+
 function App() {
   const [state, dispatch] = useGlobalContext();
 
   return (
     <div className="container">
-      {state.user.token ? <AuthenticatedApp /> : <UnauthenticatedApp />}
+      {/* {state.user.token ? <AuthenticatedApp /> : <UnauthenticatedApp />} */}
+
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />

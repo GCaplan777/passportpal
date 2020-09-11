@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 import { LOGIN } from "../context/actions";
 import axios from "axios";
+// import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 const UnauthenticatedApp = () => {
   const [state, dispatch] = useGlobalContext();
