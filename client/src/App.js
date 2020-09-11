@@ -7,10 +7,13 @@ import Home from "./pages/Home";
 import PrivateRoute from "./pages/PrivateRoute";
 import Chat from "./pages/Chat";
 import UploadFile from "./pages/UploadFile";
+import PackingList from "./components/PackingList";
+import ButtonAppBar from "./components/ButtonAppBar";
 
 function App() {
   return (
     <div className="container">
+      <ButtonAppBar />;
       <AuthState>
         <Router>
           <Switch>
@@ -21,6 +24,7 @@ function App() {
           </Switch>
         </Router>
       </AuthState>
+      <PackingList />;
     </div>
   );
 }
