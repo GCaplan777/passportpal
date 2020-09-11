@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Container from '@material-ui/core/Container';
 import AuthState from './context/auth/AuthState';
 import Register from './pages/Register';
 import Login from './pages/Login';
@@ -10,8 +11,8 @@ import UploadFile from './pages/UploadFile';
 
 function App() {
   return (
-    <div className="container">
-      <AuthState>
+    <AuthState>
+      <Container>
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
@@ -20,8 +21,8 @@ function App() {
             <PrivateRoute exact path="/chat" component={Chat} />
           </Switch>
         </Router>
-      </AuthState>
-    </div>
+      </Container>
+    </AuthState>
   );
 }
 
