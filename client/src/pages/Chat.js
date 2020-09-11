@@ -36,10 +36,11 @@ const Chat = () => {
             className="form-control"
             name="name"
             type="text"
+            placeholder="name"
           />
         </div>
         <div className="form-group">
-          <input ref={msgRef} className="form-control" name="message" />
+          <input ref={msgRef} className="form-control" name="message" placeholder="message" />
         </div>
         <button type="submit">submit</button>
       </form>
