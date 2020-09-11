@@ -3,7 +3,7 @@ let express = require('express'),
     mongoose = require('mongoose'),
     uuidv4 = require('uuid'),
     router = express.Router();
-
+    
 const DIR = './public/';
 
 const storage = multer.diskStorage({
@@ -29,11 +29,11 @@ var upload = multer({
 });
 
 // User model
-let User = require('../models/User');
+const db = require("../models")
 
 router.post('/user-profile', upload.single('profileImg'), (req, res, next) => {
     const url = req.protocol + '://' + req.get('host')
-    const user = new User({
+    const user = new db.User({
         _id: new mongoose.Types.ObjectId(),
         name: req.body.name,
         profileImg: url + '/public/' + req.file.filename
@@ -55,7 +55,7 @@ router.post('/user-profile', upload.single('profileImg'), (req, res, next) => {
 })
 
 router.get("/", (req, res, next) => {
-    User.find().then(data => {
+    db.User.find().then(data => {
         res.status(200).json({
             message: "User list retrieved successfully!",
             users: data
