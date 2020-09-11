@@ -8,9 +8,10 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import ShareIcon from "@material-ui/icons/Share";
 import { Avatar, IconButton, CardMedia } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const DashCard = (props) => {
-  const { avatarUrl, title, description, imageUrl } = props;
+  const { avatarUrl, title, description, imageUrl, route, routeText } = props;
   return (
     <Card>
       <CardHeader
@@ -30,7 +31,8 @@ const DashCard = (props) => {
         </Typography>
       </CardContent>
       <CardActions>
-        <Button size="small">See Your List</Button>
+        <Link to={route}> {routeText}</Link>
+
         <Button size="small">OFFER</Button>
       </CardActions>
     </Card>
