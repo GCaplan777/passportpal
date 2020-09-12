@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import PrivateRoute from "./pages/PrivateRoute";
 import Chat from "./pages/Chat";
 import UploadFile from "./pages/UploadFile";
-import PackingList from "./components/PackingList";
+import PackingList from "./pages/PackingList";
 
 function App() {
   return (

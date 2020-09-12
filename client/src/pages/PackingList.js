@@ -1,10 +1,10 @@
 import React from "react";
-import Dashboard from "../components/Dashboard";
 import Header from "../components/Header";
 import { Grid } from "@material-ui/core";
-import Hero from "../components/Hero";
+import Hero from "../components/ListComponents/ListHero";
+import UserList from "../components/ListComponents/UserList";
 
-const Home = () => {
+const PackingList = () => {
   return (
     <>
       <Grid container direction="column">
@@ -15,7 +15,7 @@ const Home = () => {
         <Grid item container>
           <Grid item xs={false} sm={2} />
           <Grid item xs={12} sm={8}>
-            <Dashboard />
+            <UserList />
           </Grid>
           <Grid item xs={false} sm={2} />
         </Grid>
@@ -24,4 +24,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default PackingList;
