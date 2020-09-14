@@ -7,6 +7,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Link } from "react-router-dom";
+import FadeMenu from "./FadeMenu";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -20,27 +21,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function ButtonAppBar() {
+export default function NavBar() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
+          <FadeMenu />
+          <Typography variant="h6" className={classes.title} align="center">
             PassPort Pal
           </Typography>
-          {/* <Button color="inherit">Login</Button> */}
-          <Link to="/login"> Login</Link>
-          <Link to="/register"> Register</Link>
         </Toolbar>
       </AppBar>
     </div>

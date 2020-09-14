@@ -1,5 +1,8 @@
 import React, { useRef, useContext } from 'react';
 import authContext from '../context/auth/authContext';
+import { LOGIN } from '../context/actions';
+import axios from 'axios';
+import Container from '@material-ui/core/Container';
 
 const Register = () => {
   const { register } = useContext(authContext);
@@ -39,21 +42,24 @@ const Register = () => {
   };
 
   return (
-    <div>
-      {/* <p>Please enter your information to login:</p>
+    <>
+      <Container component="main" maxWidth="xs">
+        {/* <p>Please enter your information to login:</p>
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="email" ref={emailRef} />
         <input type="text" placeholder="password" ref={passwordRef} />
         <button type="submit">Submit</button>
       </form> */}
-      <p>Please enter your information to signup:</p>
-      <form onSubmit={handleSignup}>
-        <input type="text" placeholder="name" ref={regNameRef} />
-        <input type="email" placeholder="email" ref={regEmailRef} />
-        <input type="password" placeholder="password" ref={regPasswordRef} />
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+
+        <p>Please enter your information to signup:</p>
+        <form onSubmit={handleSignup}>
+          <input type="text" placeholder="name" ref={regNameRef} />
+          <input type="email" placeholder="email" ref={regEmailRef} />
+          <input type="password" placeholder="password" ref={regPasswordRef} />
+          <button type="submit">Submit</button>
+        </form>
+      </Container>
+    </>
   );
 };
 
