@@ -9,17 +9,19 @@ const cors = require('cors')
 // init server
 const http = require('http').createServer(app);
 const io = require('socket.io')(http);
-const api = require('./routes/user.routes');
+const api = require('./routes/file');
+const logger = require('morgan');
 
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(bodyParser.json());
+app.use(logger('dev'));
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-
+app.use('/api', api)
 // database connection
 mongoose.connect(
   process.env.MONGODB_URI || 'mongodb://localhost:27017/passportpal',
@@ -33,6 +35,14 @@ mongoose.connect(
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.resolve(__dirname, 'client', 'build')));
 }
+/** Seting up server to accept cross-origin browser requests */
+app.use(function(req, res, next) { //allow cross origin requests
+  res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
+  res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.header("Access-Control-Allow-Credentials", true);
+  next();
+});
 
 // routes
 app.use(routes);

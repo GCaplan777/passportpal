@@ -24,6 +24,8 @@ export default class UploadFile extends Component {
         formData.append('profileImg', this.state.profileImg)
         console.log(this.state)
         axios.post("http://localhost:8000/api/user-profile", formData, {
+            headers: {
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem("user")).token}`},
         }).then(res => {
             console.log(res)
         })

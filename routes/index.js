@@ -4,7 +4,7 @@ const apiRoutes = require('./apiRoutes');
 const authRoutes = require('../authentication/authRoutes');
 const path = require('path');
 
-Router.use('/api', passport.authenticate('jwt', { session: false }), apiRoutes);
+//Router.use('/api', passport.authenticate('jwt', { session: false }), apiRoutes);
 Router.use('/auth', authRoutes);
 // For anything else, render the html page
 Router.use(function (req, res) {
