@@ -1,13 +1,24 @@
 import React from "react";
-// import { useGlobalContext } from "./GlobalContext.js";
-import Button from "@material-ui/core/Button";
+import DashBoard from "../components/Dashboard";
+import ButtonAppBar from "../components/ButtonAppBar";
+import { Grid } from "@material-ui/core";
 
 const Home = () => {
-  // const [state, dispatch] = useGlobalContext();
   return (
-    <Button variant="contained" color="primary">
-      Hello world
-    </Button>
+    <>
+      <Grid container direction="column">
+        <Grid item>
+          <ButtonAppBar />;
+        </Grid>
+        <Grid item container>
+          <Grid item xs={false} sm={2} />
+          <Grid item xs={12} sm={8}>
+            <DashBoard />
+          </Grid>
+          <Grid item xs={false} sm={2} />
+        </Grid>
+      </Grid>
+    </>
   );
 };
 
