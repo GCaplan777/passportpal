@@ -61,7 +61,7 @@ const DashCard = (props) => {
               <Link to={route}> {routeText} </Link>
             </Button>
           </Typography>
-          <Typography>{description}</Typography>
+          <Typography align="center">{description}</Typography>
         </CardContent>
       </Card>
     </>
