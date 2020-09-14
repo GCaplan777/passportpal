@@ -42,11 +42,11 @@ function TodoForm({ addTodo }) {
 }
 
 // PushTodoList is to Push completed items to a new list rendered below List
-function PushTodoList({ pushTodo }) {
-  const [value, setValue] = useState("");
+// function PushTodoList({ pushTodo }) {
+//   const [value, setValue] = useState("");
 
-  return <list>pushTodo</list>;
-}
+//   return <list>pushTodo</list>;
+// }
 
 function UserList() {
   const [todos, setTodos] = useState([
@@ -69,12 +69,12 @@ function UserList() {
     setTodos(newTodos);
   };
 
-  const pushTodo = (index) => {
-    const newTodos = [...todos];
-    newTodos.push(index, 1);
-    console.log(index, 1);
-    setTodos(newTodos);
-  };
+  // const pushTodo = (index) => {
+  //   const newTodos = [...todos];
+  //   newTodos.push(index, 1);
+  //   console.log(index, 1);
+  //   setTodos(newTodos);
+  // };
 
   const removeTodo = (index) => {
     const newTodos = [...todos];

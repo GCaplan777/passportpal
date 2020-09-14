@@ -1,13 +1,15 @@
-const express = require('express');
-const path = require('path');
-const mongoose = require('mongoose');
-const routes = require('./routes');
+const express = require("express");
+const path = require("path");
+const mongoose = require("mongoose");
+const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 8000;
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
 // init server
-const http = require('http').createServer(app);
-const io = require('socket.io')(http);
+const http = require("http").createServer(app);
+const io = require("socket.io")(http);
 
 // middleware
 app.use(express.json());
@@ -15,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 // database connection
 mongoose.connect(
-  process.env.MONGODB_URI || 'mongodb://localhost:27017/passportpal',
+  process.env.MONGODB_URI || "mongodb://localhost:27017/passportpal",
   {
     useCreateIndex: true,
     useNewUrlParser: true,
@@ -23,21 +25,72 @@ mongoose.connect(
   }
 );
 
-if (process.env.NODE_ENV === 'production') {
-  app.use(express.static(path.resolve(__dirname, 'client', 'build')));
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.resolve(__dirname, "client", "build")));
 }
 
 // routes
 app.use(routes);
 
+// GC todo routes
+const todoRoutes = express.Router();
+app.use("/todos", todoRoutes);
+
+todoRoutes.route("/").get(function (req, res) {
+  Todo.find(function (err, todos) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.json(todos);
+    }
+  });
+});
+
+todoRoutes.route("/:id").get(function (req, res) {
+  let id = req.params.id;
+  Todo.findById(id, function (err, todo) {
+    res.json(todo);
+  });
+});
+
+todoRoutes.route("/add").post(function (req, res) {
+  let todo = new Todo(req.body);
+  todo
+    .save()
+    .then((todo) => {
+      res.status(200).json({ todo: "todo added successfully" });
+    })
+    .catch((err) => {
+      res.status(400).send("adding new todo failed");
+    });
+});
+
+todoRoutes.route("/update/:id").post(function (req, res) {
+  Todo.findById(req.params.id, function (err, todo) {
+    if (!todo) res.status(404).send("data is not found");
+    else todo.todo_description = req.body.todo_description;
+    todo.todo_responsible = req.body.todo_responsible;
+    todo.todo_priority = req.body.todo_priority;
+    todo.todo_completed = req.body.todo_completed;
+    todo
+      .save()
+      .then((todo) => {
+        res.json("Todo updated!");
+      })
+      .catch((err) => {
+        res.status(400).send("Update not possible");
+      });
+  });
+});
+
 // init socket
-io.on('connect', (socket) => {
+io.on("connect", (socket) => {
   console.log(socket.handshake.query.name);
 
-  io.emit('join', socket.handshake.query.name);
+  io.emit("join", socket.handshake.query.name);
 
-  socket.on('message', (msg) => {
-    io.emit('message', msg);
+  socket.on("message", (msg) => {
+    io.emit("message", msg);
   });
 });
 
