@@ -44,22 +44,26 @@ const DashCard = (props) => {
   const classes = useStyles();
 
   return (
-    <Card className={classes.card}>
-      <CardMedia
-        className={classes.cardMedia}
-        image={imageUrl}
-        title="Image title"
-      />
-      <CardContent className={classes.cardContent}>
-        <Typography gutterBottom variant="h5" component="h2">
-          {title}
-        </Typography>
-        <Typography>{description}</Typography>
-      </CardContent>
-      <CardActions>
-        <Link to={route}> {routeText}</Link>
-      </CardActions>
-    </Card>
+    <Container className={classes.cardGrid} maxWidth="sm">
+      <Grid container spacing={4}>
+        <Card className={classes.card}>
+          <CardMedia
+            className={classes.cardMedia}
+            image={imageUrl}
+            title="Image title"
+          />
+          <CardContent className={classes.cardContent}>
+            <Typography gutterBottom variant="h5" component="h2">
+              {title}
+            </Typography>
+            <Typography>{description}</Typography>
+          </CardContent>
+          <CardActions>
+            <Link to={route}> {routeText}</Link>
+          </CardActions>
+        </Card>
+      </Grid>
+    </Container>
   );
 };
 

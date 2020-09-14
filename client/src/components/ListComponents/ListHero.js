@@ -37,7 +37,7 @@ export default function ListHero() {
             color="textPrimary"
             gutterBottom
           >
-            PassPort Pal
+            Keep Track of Your Pack
           </Typography>
           <Typography
             variant="h5"
