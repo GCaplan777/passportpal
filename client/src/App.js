@@ -20,7 +20,7 @@ function App() {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/packinglist" component={PackingList} />
-            {/* <Route exact path="/upload" component={UploadFile} /> */}
+            <Route exact path="/upload" component={UploadFile} />
             <PrivateRoute exact path="/chat" component={Chat} />
           </Switch>
         </Router>
