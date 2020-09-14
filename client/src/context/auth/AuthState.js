@@ -2,10 +2,10 @@ import React, { useReducer } from 'react';
 import axios from 'axios';
 import authReducer from './authReducer';
 import authContext from './authContext';
-import { REGISTER, LOGIN } from '../actions';
+import { REGISTER, LOGIN, LOGOUT } from '../actions';
 
 const AuthState = ({ ...props }) => {
-  const initialState = null;
+  const initialState = JSON.parse(localStorage.getItem('user')) || null;
 
   const [state, dispatch] = useReducer(authReducer, initialState);
 
@@ -36,8 +36,15 @@ const AuthState = ({ ...props }) => {
     });
   };
 
+  const logout = () => {
+    dispatch({ type: LOGOUT });
+  };
+
   return (
-    <authContext.Provider value={{ register, user: state, login }} {...props} />
+    <authContext.Provider
+      value={{ register, user: state, login, logout }}
+      {...props}
+    />
   );
 };
 
