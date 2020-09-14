@@ -1,5 +1,7 @@
 import React, { useContext, useRef } from "react";
 import authContext from "../context/auth/authContext";
+import Container from "@material-ui/core/Container";
+import Button from "@material-ui/core/Button";
 
 const Login = () => {
   const { login } = useContext(authContext);
@@ -16,12 +18,14 @@ const Login = () => {
 
   return (
     <>
-      <p>Please enter your information to login:</p>
-      <form onSubmit={handleSumbit}>
-        <input type="text" placeholder="email" ref={emailRef} />
-        <input type="text" placeholder="password" ref={passwordRef} />
-        <button type="submit">Submit</button>
-      </form>
+      <Container component="main" maxWidth="xs">
+        <p>Please enter your information to login:</p>
+        <form onSubmit={handleSumbit}>
+          <input type="text" placeholder="email" ref={emailRef} />
+          <input type="text" placeholder="password" ref={passwordRef} />
+          <button type="submit">Submit</button>
+        </form>
+      </Container>
     </>
   );
 };

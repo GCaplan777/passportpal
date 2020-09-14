@@ -66,7 +66,10 @@ app.use(routes);
 
 // init socket
 io.on('connect', (socket) => {
-  console.log('a user connected');
+  console.log(socket.handshake.query.name);
+
+  io.emit('join', socket.handshake.query.name);
+
   socket.on('message', (msg) => {
     io.emit('message', msg);
   });
