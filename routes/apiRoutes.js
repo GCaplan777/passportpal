@@ -3,6 +3,7 @@ const userController = require("../controllers/userController");
 const GridFsStorage = require ('multer-gridfs-storage')
 const multer = require('multer');
 const crypto = require('crypto')
+const db = require('../models');
 // Create storage engine
 const storage = new GridFsStorage({
   // process.env.MONGODB_URI || 
@@ -35,8 +36,13 @@ Router.get("/welcome", (req, res) => {
 // });
 
 Router.route("/users").post(userController.createNew);
-Router.post('/files', upload.single('img'), (req, res, err) => {
+Router.post('/files/:id', upload.single('img'), 
+  async (req, res, err) => {
   console.log(req.file)
+  //add file name to user
+  let fileName = req.file.filename
+  let updatedUser = await db.User.findByIdAndUpdate({_id: req.params.id}, {planeTicket: fileName} )
+  console.log(req.file.filename)
   // if (err) throw err;
   
   res.status(201).send()
