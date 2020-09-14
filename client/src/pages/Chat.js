@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from 'react';
+import Icon from '@material-ui/core/Icon';
 import {
   Input,
   FormControl,
@@ -12,22 +13,30 @@ import {
   Avatar,
   Card,
   CardContent,
-} from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import io from "socket.io-client";
+  Button,
+} from '@material-ui/core';
+import { makeStyles } from '@material-ui/core/styles';
+import io from 'socket.io-client';
 
 let socket;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "100%",
-    // maxWidth: '36ch',
+    width: '100%',
     backgroundColor: theme.palette.background.paper,
-    display: "flex",
-    alignItems: "center",
+    display: 'flex',
+    height: '50vh',
+    overflowY: 'scroll',
   },
   inline: {
     display: "inline",
+  },
+
+  aside: {
+    alignSelf: 'flex-start',
+  },
+  button: {
+    margin: theme.spacing(1),
   },
 }));
 
@@ -72,7 +81,7 @@ const Chat = () => {
     <>
       <Card>
         <CardContent className={classes.root}>
-          <List>
+          <List className={classes.aside}>
             <h1>Current Participants</h1>
             {participants.length >= 0 &&
               participants.map((participant) => (
@@ -124,7 +133,15 @@ const Chat = () => {
             </FormControl>
           </FormGroup>
 
-          <button type="submit">submit</button>
+          <Button
+            variant="contained"
+            color="primary"
+            className={classes.button}
+            endIcon={<Icon>send</Icon>}
+            type="submit"
+          >
+            Send
+          </Button>
         </form>
       </Card>
     </>
