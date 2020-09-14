@@ -1,4 +1,4 @@
 module.exports = {
   // PassportPal: require("./passportpal")
-  User: require('./user'),
+  User: require('./User'),
 };

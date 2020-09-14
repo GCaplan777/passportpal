@@ -22,27 +22,44 @@ export default class UploadFile extends Component {
         e.preventDefault()
         const formData = new FormData()
         formData.append('profileImg', this.state.profileImg)
-        axios.post("http://localhost:8000/api/user-profile", formData, {
+        console.log(this.state)
+        console.log(JSON.parse(localStorage.getItem("user")).token)
+        axios.post("/api/files", formData, {
+            headers: {
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem("user")).token}`},
         }).then(res => {
             console.log(res)
         })
     }
 
+    Post = e => { 
+        e.preventDefault(); 
+        const file = document.getElementById("inputGroupFile01").files; 
+        const formData = new FormData(); formData.append("img", file[0]); 
+        fetch("http://localhost:8000/api/files", { 
+            method: "POST", 
+            body: formData,
+            headers: {
+                'Authorization': `Bearer ${JSON.parse(localStorage.getItem("user")).token}`}
+         }).then(
+            r => { console.log(r); }); console.log(file[0]); };
+
 
     render() {
         return (
-            <div className="container">
-                <div className="row">
-                    <form onSubmit={this.onSubmit}>
-                        <div className="form-group">
-                            <input type="file" onChange={this.onFileChange} />
-                        </div>
-                        <div className="form-group">
-                            <button className="btn btn-primary" type="submit">Upload</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+            <div className="container"> 
+                <div className="jumbotron"> 
+                    <h1 className="display-4">Image Uploader</h1> 
+                        <p className="lead"> This is a simple application to upload and retrieve images from a database </p> <hr className="my-4" /> 
+                    </div> 
+                    <div className="input-group mb-3"> 
+                        <div className="custom-file">
+                            <input type="file" className="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01" /> 
+                                <label className="custom-file-label" htmlFor="inputGroupFile01"> Choose file </label> 
+                            </div> 
+                        </div> 
+                        <button type="button" className="btn btn-primary" onClick={this.Post}> Upload </button> 
+                    </div>
         )
     }
 }
