@@ -4,10 +4,21 @@ const GridFsStorage = require ('multer-gridfs-storage')
 const multer = require('multer');
 const crypto = require('crypto')
 const db = require('../models');
+const Grid = require('gridfs-stream');
 // Create storage engine
+const  mongoose = require('mongoose');
+// let gfs
+
+// connection.once('open', () => {
+//   console.log(connection.db)
+//   gfs = Grid(connection.db, mongoose.mongo)
+//   gfs.collection('uploads')
+//   console.log('Connection Successful')
+// })
+
 const storage = new GridFsStorage({
-  // process.env.MONGODB_URI || 
-  url: 'mongodb://localhost:27017/passportpal',
+  
+  url: process.env.MONGODB_URI || 'mongodb://localhost:27017/passportpal',
   file: (req, file) => {
     return new Promise((resolve, reject) => {
       crypto.randomBytes(16, (err, buf) => {
@@ -23,9 +34,19 @@ const storage = new GridFsStorage({
       })
     })
   },
-})
-const upload = multer({ storage })
+  
+}
 
+)
+const upload = multer({ storage })
+let gfs
+
+mongoose.connection.once('open', () => {
+  console.log(mongoose.connection.db)
+  gfs = Grid(mongoose.connection.db, mongoose.mongo)
+  gfs.collection('uploads')
+  console.log('Connection Successful')
+})
 // routes that we want to protect
 Router.get("/welcome", (req, res) => {
   res.send("Welcome to Passport Pal.");
@@ -48,7 +69,8 @@ Router.post('/files/:id', upload.single('img'),
   res.status(201).send()
 })
 
-Router.get('/:filename', (req, res) => {
+Router.get('/files/:filename', (req, res) => {
+  console.log("test")
   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
     // Check if file
     if (!file || file.length === 0) {
