@@ -6,9 +6,6 @@ import Container from '@material-ui/core/Container';
 
 const Register = () => {
   const { register } = useContext(authContext);
-
-  const emailRef = useRef();
-  const passwordRef = useRef();
   const regNameRef = useRef();
   const regEmailRef = useRef();
   const regPasswordRef = useRef();
