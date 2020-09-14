@@ -5,7 +5,7 @@ import authContext from './authContext';
 import { REGISTER, LOGIN } from '../actions';
 
 const AuthState = ({ ...props }) => {
-  const initialState = { user: null };
+  const initialState = null;
 
   const [state, dispatch] = useReducer(authReducer, initialState);
 
@@ -36,7 +36,9 @@ const AuthState = ({ ...props }) => {
     });
   };
 
-  return <authContext.Provider value={{ register, state, login }} {...props} />;
+  return (
+    <authContext.Provider value={{ register, user: state, login }} {...props} />
+  );
 };
 
 export default AuthState;
