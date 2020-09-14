@@ -32,9 +32,6 @@ export default function NavBar() {
           <Typography variant="h6" className={classes.title} align="center">
             PassPort Pal
           </Typography>
-          {/* <Button color="inherit">Login</Button> */}
-          {/* <Link to="/login"> Login</Link>
-          <Link to="/register"> Register</Link> */}
         </Toolbar>
       </AppBar>
     </div>

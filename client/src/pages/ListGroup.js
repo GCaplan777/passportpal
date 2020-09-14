@@ -1,9 +1,9 @@
 import React from "react";
 import { Grid } from "@material-ui/core";
-import Hero from "../components/ListComponents/ListHero";
-import UserList from "../components/ListComponents/UserList";
+import Hero from "../components/ListComponents/ListUserHero";
+import UserList from "../components/ListComponents/ListUser";
 
-const PackingList = () => {
+const GroupPackingList = () => {
   return (
     <>
       <Grid container direction="column">
@@ -22,4 +22,4 @@ const PackingList = () => {
   );
 };
 
-export default PackingList;
+export default GroupPackingList;

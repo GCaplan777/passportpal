@@ -19,7 +19,7 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 
 const DashCard = (props) => {
-  const { avatarUrl, title, description, imageUrl, route, routeText } = props;
+  const { title, description, imageUrl, route, routeText } = props;
 
   const useStyles = makeStyles((theme) => ({
     cardGrid: {
@@ -30,6 +30,9 @@ const DashCard = (props) => {
       height: "100%",
       display: "flex",
       flexDirection: "column",
+      marginTop: theme.spacing(8),
+      marginLeft: theme.spacing(2),
+      marginRight: theme.spacing(2),
     },
     cardMedia: {
       paddingTop: "56.25%", // 16:9
@@ -37,36 +40,30 @@ const DashCard = (props) => {
     cardContent: {
       flexGrow: 1,
     },
+    // cardActions: {
+    //   align: "center",
+    // },
   }));
-
-  // const cards = [];
 
   const classes = useStyles();
 
   return (
     <>
-      <Container className={classes.cardGrid} maxWidth="sm">
-        <Grid item xs={12} sm={6} md={6} lg={6}>
-          <Grid container spacing={4}>
-            <Card className={classes.card}>
-              <CardMedia
-                className={classes.cardMedia}
-                image={imageUrl}
-                title="Image title"
-              />
-              <CardContent className={classes.cardContent}>
-                <Typography gutterBottom variant="h5" component="h2">
-                  {title}
-                </Typography>
-                <Typography>{description}</Typography>
-              </CardContent>
-              <CardActions>
-                <Link to={route}> {routeText}</Link>
-              </CardActions>
-            </Card>
-          </Grid>
-        </Grid>
-      </Container>
+      <Card className={classes.card}>
+        <CardMedia
+          className={classes.cardMedia}
+          image={imageUrl}
+          title="Image title"
+        />
+        <CardContent className={classes.cardContent}>
+          <Typography gutterBottom variant="h5" component="h2" align="center">
+            <Button variant="contained" color="default" width="100%">
+              <Link to={route}> {routeText} </Link>
+            </Button>
+          </Typography>
+          <Typography>{description}</Typography>
+        </CardContent>
+      </Card>
     </>
   );
 };
