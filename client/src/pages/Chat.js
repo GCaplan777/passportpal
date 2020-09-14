@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from "react";
 import {
   Input,
   FormControl,
@@ -12,22 +12,22 @@ import {
   Avatar,
   Card,
   CardContent,
-} from '@material-ui/core';
-import { makeStyles } from '@material-ui/core/styles';
-import io from 'socket.io-client';
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import io from "socket.io-client";
 
 let socket;
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '100%',
+    width: "100%",
     // maxWidth: '36ch',
     backgroundColor: theme.palette.background.paper,
-    display: 'flex',
-    alignItems: 'center',
+    display: "flex",
+    alignItems: "center",
   },
   inline: {
-    display: 'inline',
+    display: "inline",
   },
 }));
 
@@ -41,31 +41,31 @@ const Chat = () => {
   useEffect(() => {
     socket = io({
       query: {
-        name: JSON.parse(localStorage.getItem('user')).name,
+        name: JSON.parse(localStorage.getItem("user")).name,
       },
     });
 
-    socket.on('join', (name) => {
+    socket.on("join", (name) => {
       setParticipants((participants) => [...participants, name]);
     });
 
-    socket.on('message', (message) => {
+    socket.on("message", (message) => {
       setChats((chats) => [...chats, message]);
     });
   }, []);
 
   const getFirstName = (name) => {
-    return name.split(' ')[0];
+    return name.split(" ")[0];
   };
 
   const handleSumbit = (e) => {
     e.preventDefault();
 
-    socket.emit('message', {
-      name: getFirstName(JSON.parse(localStorage.getItem('user')).name),
+    socket.emit("message", {
+      name: getFirstName(JSON.parse(localStorage.getItem("user")).name),
       message: msgRef.current.value,
     });
-    msgRef.current.value = '';
+    msgRef.current.value = "";
   };
 
   return (
