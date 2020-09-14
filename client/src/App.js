@@ -9,12 +9,15 @@ import PrivateRoute from "./pages/PrivateRoute";
 import Chat from "./pages/Chat";
 import UploadFile from "./pages/UploadFile";
 import PackingList from "./pages/PackingList";
+import NavBar from "./components/NavBar";
+import StickyFooter from "./components/StickyFooter";
 
 function App() {
   return (
     <AuthState>
       <Container>
         <Router>
+          <NavBar />
           <Switch>
             <Route exact path="/" component={Home} />
             <Route exact path="/register" component={Register} />
@@ -24,6 +27,7 @@ function App() {
           </Switch>
         </Router>
       </Container>
+      <StickyFooter />
     </AuthState>
   );
 }

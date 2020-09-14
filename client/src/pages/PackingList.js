@@ -1,5 +1,4 @@
 import React from "react";
-import NavBar from "../components/NavBar";
 import { Grid } from "@material-ui/core";
 import Hero from "../components/ListComponents/ListHero";
 import UserList from "../components/ListComponents/UserList";
@@ -9,7 +8,6 @@ const PackingList = () => {
     <>
       <Grid container direction="column">
         <Grid item>
-          <NavBar />
           <Hero />
         </Grid>
         <Grid item container>
