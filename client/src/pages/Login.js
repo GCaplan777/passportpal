@@ -1,12 +1,20 @@
-import React, { useContext, useRef } from "react";
-import authContext from "../context/auth/authContext";
-import Container from "@material-ui/core/Container";
-import Button from "@material-ui/core/Button";
+import React, { useContext, useRef, useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import authContext from '../context/auth/authContext';
+import Container from '@material-ui/core/Container';
+import Button from '@material-ui/core/Button';
 
 const Login = () => {
-  const { login } = useContext(authContext);
+  const { login, user } = useContext(authContext);
+  const history = useHistory();
   const emailRef = useRef();
   const passwordRef = useRef();
+
+  useEffect(() => {
+    if (user) {
+      history.push('/');
+    }
+  }, [user]);
 
   const handleSumbit = async (e) => {
     e.preventDefault();

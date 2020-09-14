@@ -8,13 +8,11 @@ const authReducer = (state, action) => {
     case LOGIN:
       localStorage.setItem('user', JSON.stringify(action.payload));
       return {
-        ...state,
         user: action.payload,
       };
     case REGISTER:
       localStorage.setItem('user', JSON.stringify(action.payload));
       return {
-        ...state,
         user: action.payload,
       };
     default:
