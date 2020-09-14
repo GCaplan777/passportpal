@@ -1,7 +1,6 @@
-import React from "react";
-import DashBoard from "../components/Dashboard";
-import { Grid } from "@material-ui/core";
-import Hero from "../components/Hero";
+import React from 'react';
+import DashBoard from '../components/Dashboard';
+import Hero from '../components/Hero';
 
 const Home = () => {
   return (
