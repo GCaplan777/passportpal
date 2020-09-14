@@ -1,6 +1,6 @@
 import React from "react";
 import DashBoard from "../components/Dashboard";
-import Header from "../components/Header";
+import NavBar from "../components/NavBar";
 import { Grid } from "@material-ui/core";
 import Hero from "../components/Hero";
 
@@ -9,7 +9,7 @@ const Home = () => {
     <>
       {/* <Grid container direction="column"> */}
       {/* <Grid item> */}
-      <Header />
+      <NavBar />
       <Hero />
       {/* </Grid> */}
       {/* <Grid item container>
