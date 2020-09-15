@@ -36,14 +36,15 @@ export default class UploadFile extends Component {
         e.preventDefault(); 
         const file = document.getElementById("inputGroupFile01").files; 
         const formData = new FormData(); formData.append("img", file[0]); 
-        fetch(`http://localhost:8000/api/files/${JSON.parse(localStorage.getItem("user")).id}`, { 
+        // fetch(`http://localhost:8000/api/files/${JSON.parse(localStorage.getItem("user")).id}`, { 
+        fetch(`http://passportpal.herokuapp.com/api/files/${JSON.parse(localStorage.getItem("user")).id}`, { 
             method: "POST", 
             body: formData,
             headers: {
                 'Authorization': `Bearer ${JSON.parse(localStorage.getItem("user")).token}`,}
          }).then(
             r => { console.log(r); });
-            fetch(`http://localhost:8000/api/files/${file[0].name}`, { 
+            fetch(`http://passportpal.herokuapp.com/api/files/${file[0].name}`, { 
                 method: "GET",
                 headers: {
                     'Authorization': `Bearer ${JSON.parse(localStorage.getItem("user")).token}`,}
