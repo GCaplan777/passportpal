@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Alert } from '@material-ui/lab';
-import Icon from '@material-ui/core/Icon';
 import {
   Input,
   FormControl,
