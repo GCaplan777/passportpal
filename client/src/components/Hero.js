@@ -48,12 +48,12 @@ export default function Hero() {
           >
             Pack it up, Pack it in, Let us Begin!
           </Typography>
-          <div className={classes.heroButtons}>
+          {/* <div className={classes.heroButtons}>
             <Grid container spacing={2} justify="center">
               <Grid item>
                 <Link to="/login">
                   <Button variant="contained" color="primary">
-                    LOGIN
+                    SIGN IN
                   </Button>
                 </Link>
               </Grid>
@@ -65,7 +65,7 @@ export default function Hero() {
                 </Link>
               </Grid>
             </Grid>
-          </div>
+          </div> */}
         </Container>
       </div>
     </>
