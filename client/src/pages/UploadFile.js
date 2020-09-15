@@ -37,7 +37,7 @@ export default class UploadFile extends Component {
         const file = document.getElementById("inputGroupFile01").files; 
         const formData = new FormData(); formData.append("img", file[0]); 
         // fetch(`http://localhost:8000/api/files/${JSON.parse(localStorage.getItem("user")).id}`, { 
-        fetch(`https://passportpal.herokuapp.com/api/files/${JSON.parse(localStorage.getItem("user")).id}`, { 
+        fetch(`/api/files/${JSON.parse(localStorage.getItem("user")).id}`, { 
             method: "POST", 
             body: formData,
             headers: {
