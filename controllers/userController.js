@@ -16,8 +16,6 @@ module.exports = {
       password: hashedPassword,
     });
 
-    console.log(newUser);
-
     const payload = {
       user: newUser.id,
     };
@@ -31,7 +29,7 @@ module.exports = {
       (err, token) => {
         if (err) console.error(err);
 
-        res.json({ name, token });
+        res.json({ id: newUser.id, name, token });
       }
     );
   },
