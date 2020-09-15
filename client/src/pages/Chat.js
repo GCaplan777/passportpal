@@ -78,8 +78,9 @@ const Chat = () => {
     });
 
     return () => {
-      console.log('yes');
-      socket.emit('left', JSON.parse(localStorage.getItem('user')).name);
+      if (localStorage.getItem('user')) {
+        socket.emit('left', JSON.parse(localStorage.getItem('user')).name);
+      }
     };
   }, []);
 

@@ -8,7 +8,7 @@ import Link from '@material-ui/core/Link';
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
-      {"Copyright © "}
+      {'Copyright © '}
       <Link color="inherit" href="https://github.com/GCaplan777/passportpal">
         Passport Pal
       </Link>{' '}
@@ -22,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
     flexDirection: 'column',
-    // minHeight: "100vh",
   },
   main: {
     marginTop: theme.spacing(8),
@@ -30,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
   },
   footer: {
     padding: theme.spacing(3, 2),
-    // marginTop: "auto",
+
     backgroundColor:
       theme.palette.type === 'light'
         ? theme.palette.grey[200]
@@ -44,11 +43,6 @@ export default function StickyFooter() {
   return (
     <div className={classes.root}>
       <CssBaseline />
-      <Container
-        component="main"
-        className={classes.main}
-        maxWidth="sm"
-      ></Container>
       <footer className={classes.footer}>
         <Container maxWidth="sm">
           <Typography variant="body1"></Typography>
