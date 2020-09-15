@@ -48,6 +48,12 @@ export default function FadeMenu() {
             <MenuItem onClick={handleClose}>
               <Link to="/packinglist"> Your Packing List</Link>
             </MenuItem>
+            <MenuItem onClick={handleClose}>
+              <Link to="/upload"> Upload Document</Link>
+            </MenuItem>
+            <MenuItem onClick={handleClose}>
+              <Link to="/documents"> View Documents</Link>
+            </MenuItem>
             <MenuItem onClick={() => logout()}>Logout</MenuItem>
           </div>
         ) : (
