@@ -17,7 +17,7 @@ export default [
   },
   {
     title: "Chat",
-    description: "Planes? Trains? Automobiles? Put your tickets here",
+    description: "Want to make sure everyone is on the same page? Chat away.",
     imageUrl:
       "https://lp-cms-production.imgix.net/news/2019/07/Sidekick-3.jpg?auto=format&fit=crop&sharp=10&vib=20&ixlib=react-8.6.4&w=850",
     route: "/chat",
@@ -25,7 +25,7 @@ export default [
   },
   {
     title: "Documents",
-    description: "Planes? Trains? Automobiles? Put your tickets here",
+    description: "Plane Tickets? Trains Trickets? Automobiles? Put your tickets here",
     imageUrl:
       "https://i0.wp.com/sundancevacationsblog.com/wp-content/uploads/2019/04/Sudnance-Vacations-2019-Travel-Documents.jpg?fit=600%2C400&ssl=1&resize=1280%2C720",
     route: "/documents",
