@@ -5,8 +5,6 @@ import Document from '../components/Document'
 import axios from 'axios'
 
 
-let documentArray =[];
-
 const Documents = () => {
     const [documents, setDocuments] = useState([])
     // const getDocumentArray = async () => {
@@ -31,24 +29,17 @@ const Documents = () => {
                      'Authorization': `Bearer ${JSON.parse(localStorage.getItem("user")).token}`}
               }).then( res =>{
                   console.log(res)
-                  setDocuments(res.data)
-                 
-                  documentArray=res.data.documentsUploaded
-                  console.log(documentArray)
+                  setDocuments(res.data.documentsUploaded)
+                 console.log(documents)
               })
              
-     }, [documentArray])
+     }, documents)
 
   return (
     <>
-    {documentArray.map(document => {
-        console.log(test);
+    {documents.map(document => {
         return <Document  md5={document}/>
     })} 
-   
-    {console.log(documentArray)}
-    <h1>{documentArray[0]}</h1>
-    <h1>testing</h1>
     </>
   );
 };
