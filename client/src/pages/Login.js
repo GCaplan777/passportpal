@@ -14,7 +14,7 @@ const Login = () => {
     if (user) {
       history.push('/');
     }
-  }, [user]);
+  }, [user, history]);
 
   const handleSumbit = async (e) => {
     e.preventDefault();

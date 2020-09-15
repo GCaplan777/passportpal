@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Alert } from '@material-ui/lab';
-import Icon from '@material-ui/core/Icon';
 import {
   Input,
   FormControl,
@@ -79,7 +78,9 @@ const Chat = () => {
     });
 
     return () => {
-      socket.emit('left', JSON.parse(localStorage.getItem('user')).name);
+      if (localStorage.getItem('user')) {
+        socket.emit('left', JSON.parse(localStorage.getItem('user')).name);
+      }
     };
   }, []);
 

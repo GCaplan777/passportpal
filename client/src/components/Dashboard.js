@@ -25,11 +25,9 @@ export default function Dashboard() {
       <CssBaseline />
       {
         <Grid container spacing={2} justify="center">
-          {/* <Grid item xs={12} sm={6} md={6} lg={6}> */}
-          {/* <div className={classes.heroContent}> */}
-          {DashboardList.map((dashCardObj) => DashCard(dashCardObj))};
-          {/* </div> */}
-          {/* </Grid> */}
+          {DashboardList.map((dashCardObj) => (
+            <DashCard key={dashCardObj.id} {...dashCardObj} />
+          ))}
         </Grid>
       }
     </>
