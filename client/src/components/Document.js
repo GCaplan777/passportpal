@@ -70,7 +70,7 @@ const Document = (props) => {
   
     return (
       <>
-      <p>tester</p>
+      <div class="col-md-4">
         <Card className={classes.card}>
           <CardMedia
             className={classes.cardMedia}
@@ -78,14 +78,15 @@ const Document = (props) => {
             title="Image title"
           />
           </Card>
-          <img
+          </div>
+          {/* <img
             id="img"
             style={{
                display: "block"
               }}
             src={document}
               >
-            </img>
+            </img> */}
       </>
     );
     
