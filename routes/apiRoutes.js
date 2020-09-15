@@ -62,7 +62,7 @@ Router.post('/files/:id', upload.single('img'),
   console.log(req.file)
   //add file name to user
   let fileName = req.file.md5
-  let updatedUser = await db.User.findByIdAndUpdate({_id: req.params.id}, {"$push": {documentsUploaded: fileName} } )
+  await db.User.findByIdAndUpdate({_id: req.params.id}, {"$push": {documentsUploaded: fileName} } )
   console.log(fileName)
   // if (err) throw err;
   
