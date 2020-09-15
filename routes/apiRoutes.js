@@ -61,27 +61,32 @@ Router.post('/files/:id', upload.single('img'),
   async (req, res, err) => {
   console.log(req.file)
   //add file name to user
-  let fileName = req.file.filename
-  let updatedUser = await db.User.findByIdAndUpdate({_id: req.params.id}, {planeTicket: fileName} )
-  console.log(req.file.filename)
+  let fileName = req.file.md5
+  let updatedUser = await db.User.findByIdAndUpdate({_id: req.params.id}, {"$push": {documentsUploaded: fileName} } )
+  console.log(fileName)
   // if (err) throw err;
   
   res.status(201).send()
 })
-
+Router.get('/userFiles/:id', (req,res) => {
+  console.log("yo")
+  res.send(db.user.find({_id: req.params.id,}))
+})
 Router.get('/files/:filename', (req, res) => {
-  console.log("test")
+
   gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
     // Check if file
+    console.log(file)
     if (!file || file.length === 0) {
       return res.status(404).json({
         err: 'No file exists',
       })
     }
-
+    console.log("test1")
     // Check if image
     if (file.contentType === 'image/jpeg' || file.contentType === 'image/png') {
       // Read output to browser
+      console.log("test")
       const readstream = gfs.createReadStream(file.filename)
       readstream.pipe(res)
     } else {
