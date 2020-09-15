@@ -42,7 +42,16 @@ export default class UploadFile extends Component {
             headers: {
                 'Authorization': `Bearer ${JSON.parse(localStorage.getItem("user")).token}`,}
          }).then(
-            r => { console.log(r); }); console.log(file[0]); };
+            r => { console.log(r); });
+            fetch(`http://localhost:8000/api/files/${file[0].name}`, { 
+                method: "GET",
+                headers: {
+                    'Authorization': `Bearer ${JSON.parse(localStorage.getItem("user")).token}`,}
+             }).then( r=>{
+                console.log(r)
+                document.getElementById('img')
+        .setAttribute('src', r)}
+             )};
 
 
     render() {
@@ -59,6 +68,13 @@ export default class UploadFile extends Component {
                             </div> 
                         </div> 
                         <button type="button" className="btn btn-primary" onClick={this.Post}> Upload </button> 
+                        <img
+                            id="img"
+                            style={{
+                                display: "block"
+                            }}
+                            >
+                        </img>
                     </div>
         )
     }

@@ -12,8 +12,8 @@ const path = require('path');
 // Grid.mongo = mongo;
 // let gfs;
 // let storage;
-
-Router.use('/api', passport.authenticate('jwt', { session: false }), apiRoutes);
+//, passport.authenticate('jwt', { session: false })
+Router.use('/api', apiRoutes);
 Router.use('/auth', authRoutes);
 // For anything else, render the html page
 Router.use(function (req, res) {

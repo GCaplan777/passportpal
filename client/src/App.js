@@ -12,6 +12,7 @@ import ListUser from './pages/ListUser';
 import ListGroup from './pages/ListGroup';
 import NavBar from './components/NavBar';
 import StickyFooter from './components/StickyFooter';
+import Documents from './pages/Documents';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <PrivateRoute exact path="/grouppackinglis" component={ListGroup} />
             <PrivateRoute exact path="/chat" component={Chat} />
             <Route exact path="/upload" component={UploadFile} />
+            <Route exact path="/documents" component={Documents} />
           </Switch>
         </Router>
       </Container>
