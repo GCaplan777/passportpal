@@ -63,14 +63,6 @@ const Document = (props) => {
             title="Image title"
           />
           </Card>
-          <img
-            id="img"
-            style={{
-                display: "block"
-            }}
-            src={getImage()}
-            >
-            </img>
       </>
     );
   };
