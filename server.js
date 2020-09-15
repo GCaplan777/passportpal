@@ -12,7 +12,7 @@ const http = require('http').createServer(app);
 const io = require('socket.io')(http);
 const routes = require('./routes/index.js');
 const logger = require('morgan');
-
+const Grid = require('gridfs-stream');
 // middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -35,17 +35,19 @@ mongoose.connect(
   }
 );
 
+
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.resolve(__dirname, 'client', 'build')));
 }
+let gfs
 
-// let gfs
+mongoose.connection.once('open', () => {
+  console.log(mongoose.connection.db)
+  gfs = Grid(mongoose.connection.db, mongoose.mongo)
+  gfs.collection('uploads')
+  console.log('Connection Successful')
+})
 
-// conn.once('open', () => {
-//   gfs = Grid(conn.db, mongoose.mongo)
-//   gfs.collection('uploads')
-//   console.log('Connection Successful')
-// })
 // /** Seting up server to accept cross-origin browser requests */
 // app.use(function(req, res, next) { //allow cross origin requests
 //   res.setHeader("Access-Control-Allow-Methods", "POST, PUT, OPTIONS, DELETE, GET");
