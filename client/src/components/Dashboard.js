@@ -1,35 +1,15 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
 import DashboardList from './Constants';
 import DashCard from './DashCard';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import { makeStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
-  icon: {
-    marginRight: theme.spacing(2),
-  },
-  heroContent: {
-    // background: "linear-gradient(45deg, #FE6B8B 10%, #FF8E53 60%)",
-    backgroundColor: '#fce4ec',
-    padding: theme.spacing(8, 0, 6),
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4),
-  },
-}));
+import './dashBoard.css';
 
 export default function Dashboard() {
   return (
-    <>
-      <CssBaseline />
-      {
-        <Grid container spacing={2} justify="center">
-          {DashboardList.map((dashCardObj) => (
-            <DashCard key={dashCardObj.id} {...dashCardObj} />
-          ))}
-        </Grid>
-      }
-    </>
+    <div className="dashBoard">
+      {DashboardList.map((dashCardObj) => (
+        <DashCard key={dashCardObj.id} {...dashCardObj} />
+      ))}
+    </div>
   );
 }
