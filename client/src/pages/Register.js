@@ -1,12 +1,20 @@
 import React, { useRef, useContext } from 'react';
+import { useHistory } from 'react-router-dom';
 import authContext from '../context/auth/authContext';
 import Container from '@material-ui/core/Container';
 
 const Register = () => {
-  const { register } = useContext(authContext);
+  const { register, user } = useContext(authContext);
   const regNameRef = useRef();
   const regEmailRef = useRef();
   const regPasswordRef = useRef();
+  const history = useHistory();
+
+  useEffect(() => {
+    if (user) {
+      history.push('/');
+    }
+  }, [user, history]);
 
   const handleSignup = (e) => {
     e.preventDefault();
