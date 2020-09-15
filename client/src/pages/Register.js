@@ -1,4 +1,4 @@
-import React, { useRef, useContext } from 'react';
+import React, { useRef, useContext, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import authContext from '../context/auth/authContext';
 import Container from '@material-ui/core/Container';
