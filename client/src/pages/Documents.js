@@ -23,7 +23,7 @@ const Documents = () => {
     
     useEffect(()=>{   
         let userId = JSON.parse(localStorage.getItem("user")).id
-             axios.get(`https://passportpal.herokuapp.com/api/users/${userId}`, { 
+             axios.get(`/api/users/${userId}`, { 
                  method: "GET",
                  headers: {
                      'Authorization': `Bearer ${JSON.parse(localStorage.getItem("user")).token}`}
@@ -40,6 +40,7 @@ const Documents = () => {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"></link>
     <div class="row">
         <div class="col-md-4">
+            {console.log(documents)}
         {documents.map(document => {
             return <Document  md5={document}/>
         })} 
