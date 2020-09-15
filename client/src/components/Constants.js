@@ -19,7 +19,11 @@ export default [
     title: "Chat",
     description: "Planes? Trains? Automobiles? Put your tickets here",
     imageUrl:
+<<<<<<< HEAD
+      "https://cdn2.hubspot.net/hubfs/2497371/Attendify_Blog/1905_Feature-Launch-Group-Chat1905_Feature-Launch-Group-Chat1905_Feature-Launch-Group-Chat-1.gif",
+=======
       "https://lp-cms-production.imgix.net/news/2019/07/Sidekick-3.jpg?auto=format&fit=crop&sharp=10&vib=20&ixlib=react-8.6.4&w=850",
+>>>>>>> 5a0407a1661fb01eb683bb8ab48d08fad2ca5842
     route: "/chat",
     routeText: "Start Your Group Chat",
   },
@@ -27,7 +31,7 @@ export default [
     title: "Documents",
     description: "Planes? Trains? Automobiles? Put your tickets here",
     imageUrl:
-      "https://i0.wp.com/sundancevacationsblog.com/wp-content/uploads/2019/04/Sudnance-Vacations-2019-Travel-Documents.jpg?fit=600%2C400&ssl=1&resize=1280%2C720",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSo1Bus8Z-n7kAZcqG4TAkebe8cpV_r28MotA&usqp=CAU",
     route: "/documents",
     routeText: "Go to Your Travel Documents",
   },
