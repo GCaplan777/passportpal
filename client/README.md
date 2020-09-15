@@ -1,68 +1,72 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Template Engine-Employees
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+Traveling can be an incredibly frustrating experience with logistics encompassing many separate websites and resources.
 
-### `npm start`
+We offer a MERN Full Stack Application to satisfy your travel preparation needs. Upload your documents, create your packing list...and chat with your co-travelers! All your resources leading up to-and during your travel experience.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Table of Contents
 
-### `npm test`
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [License](#License)
+- [Contributing](#Contributing)
+- [Tests](#Tests)
+- [Questions](#Questions)
+- [Demos](#Demos)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
+With access to Node.js, you can open your terminal and run: "$npm init" to create your package-lock.json. If already there from a fork of my repo, simply run "$npm install".
+To use Eat-Da-Burger web application application from your local environment, you must accomplish the following steps below:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Step 1 - Clone our repo using the command line below.**
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```
+git clone https://github.com/GCaplan777/passportpal.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Step 2 - Change directory to the cloned repo folder.**
 
-### `npm run eject`
+```
+cd PassportPals
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+**Step 3 - Install**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+$ npm install in the root folder. Perform another $npm install from the Client Folder
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Step 4 - Start the application server using the command line below**
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+```
+npm run start:dev
+```
 
-## Learn More
+## Usage
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Axois, BCrypt, Github, Heroku, JSON-Web-Token, Material-UI, MongoDb, Mongoose, React, Socket-IO
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## License
 
-### Code Splitting
+License Copyright: Unknown. <br>https://opensource.org/licenses/MIT
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Contributing / Questions
 
-### Analyzing the Bundle Size
+Hexiang Liu
+https://github.com/HexiangLiu
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+Gabriel Caplan
+https://github.com/GCaplan777
 
-### Making a Progressive Web App
+James Rowe
+https://github.com/jamesrowe1
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+Umar Arshad
+https://github.com/umar1425
 
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<br><br>

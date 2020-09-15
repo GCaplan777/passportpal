@@ -35,18 +35,17 @@ mongoose.connect(
   }
 );
 
-
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.resolve(__dirname, 'client', 'build')));
 }
-let gfs
+let gfs;
 
 mongoose.connection.once('open', () => {
-  console.log(mongoose.connection.db)
-  gfs = Grid(mongoose.connection.db, mongoose.mongo)
-  gfs.collection('uploads')
-  console.log('Connection Successful')
-})
+  console.log(mongoose.connection.db);
+  gfs = Grid(mongoose.connection.db, mongoose.mongo);
+  gfs.collection('uploads');
+  console.log('Connection Successful');
+});
 
 // /** Seting up server to accept cross-origin browser requests */
 // app.use(function(req, res, next) { //allow cross origin requests
