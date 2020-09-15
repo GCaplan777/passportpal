@@ -21,7 +21,7 @@ export default function FadeMenu() {
   };
 
   return (
-    <div>
+    <>
       <Button
         aria-controls="fade-menu"
         aria-haspopup="true"
@@ -41,7 +41,7 @@ export default function FadeMenu() {
           <Link to="/"> Home</Link>
         </MenuItem>
         {user ? (
-          <>
+          <div>
             <MenuItem onClick={handleClose}>
               <Link to="/chat"> Chat</Link>
             </MenuItem>
@@ -49,18 +49,18 @@ export default function FadeMenu() {
               <Link to="/packinglist"> Your Packing List</Link>
             </MenuItem>
             <MenuItem onClick={() => logout()}>Logout</MenuItem>
-          </>
+          </div>
         ) : (
-          <>
+          <div>
             <MenuItem onClick={handleClose}>
               <Link to="/login"> Login</Link>
             </MenuItem>
             <MenuItem onClick={handleClose}>
               <Link to="/register"> Register</Link>
             </MenuItem>
-          </>
+          </div>
         )}
       </Menu>
-    </div>
+    </>
   );
 }
