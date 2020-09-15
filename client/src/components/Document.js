@@ -43,7 +43,8 @@ const Document = (props) => {
     //          )
    // const cardsArray; 
    useEffect(()=>{   
-         axios.get(`http://localhost:8000/api/files/${md5}`, { 
+    //    axios.get(`http://localhost:8000/api/files/${md5}`, { 
+         axios.get(`http://passportpal.herokuapp.com/api/files/${md5}`, { 
              method: "GET",
              headers: {
                  'Authorization': `Bearer ${JSON.parse(localStorage.getItem("user")).token}`}

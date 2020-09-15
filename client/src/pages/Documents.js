@@ -23,7 +23,7 @@ const Documents = () => {
     
     useEffect(()=>{   
         let userId = JSON.parse(localStorage.getItem("user")).id
-             axios.get(`http://localhost:8000/api/users/${userId}`, { 
+             axios.get(`http://passportpal.herokuapp.com/api/users/${userId}`, { 
                  method: "GET",
                  headers: {
                      'Authorization': `Bearer ${JSON.parse(localStorage.getItem("user")).token}`}
