@@ -20,8 +20,6 @@ const DashCard = (props) => {
       display: 'flex',
       flexDirection: 'column',
       marginTop: theme.spacing(8),
-      marginLeft: theme.spacing(2),
-      marginRight: theme.spacing(2),
     },
     cardMedia: {
       paddingTop: '56.25%', // 16:9
