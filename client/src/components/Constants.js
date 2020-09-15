@@ -27,7 +27,7 @@ export default [
     title: "Documents",
     description: "Planes? Trains? Automobiles? Put your tickets here",
     imageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSo1Bus8Z-n7kAZcqG4TAkebe8cpV_r28MotA&usqp=CAU",
+      "https://i0.wp.com/sundancevacationsblog.com/wp-content/uploads/2019/04/Sudnance-Vacations-2019-Travel-Documents.jpg?fit=600%2C400&ssl=1&resize=1280%2C720",
     route: "/documents",
     routeText: "Go to Your Travel Documents",
   },
