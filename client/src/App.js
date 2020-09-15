@@ -27,8 +27,8 @@ function App() {
             <PrivateRoute exact path="/packinglist" component={ListUser} />
             <PrivateRoute exact path="/grouppackinglis" component={ListGroup} />
             <PrivateRoute exact path="/chat" component={Chat} />
-            <Route exact path="/upload" component={UploadFile} />
-            <Route exact path="/documents" component={Documents} />
+            <PrivateRoute exact path="/upload" component={UploadFile} />
+            <PrivateRoute exact path="/documents" component={Documents} />
           </Switch>
         </Router>
       </Container>
