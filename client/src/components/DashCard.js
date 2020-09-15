@@ -29,9 +29,6 @@ const DashCard = (props) => {
     cardContent: {
       flexGrow: 1,
     },
-    // cardActions: {
-    //   align: "center",
-    // },
   }));
 
   const classes = useStyles();
