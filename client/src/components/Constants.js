@@ -16,6 +16,7 @@ export default [
     routeText: 'See Your Group Packing List',
   },
   {
+
     id: 3,
     description: 'Planes? Trains? Automobiles? Put your tickets here',
     imageUrl:
