@@ -17,7 +17,7 @@ export default [
   },
   {
     id: 3,
-    description: 'Planes? Trains? Automobiles? Put your tickets here',
+    description: 'Chat away with your group',
     imageUrl:
       'https://lp-cms-production.imgix.net/news/2019/07/Sidekick-3.jpg?auto=format&fit=crop&sharp=10&vib=20&ixlib=react-8.6.4&w=850',
     route: '/chat',
