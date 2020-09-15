@@ -42,16 +42,35 @@ const Document = (props) => {
     //     .setAttribute('src', r.url)}
     //          )
    // const cardsArray; 
-   
+   const getImage=() => {
+       console.log("tester")
+       fetch(`http://localhost:8000/api/files/${md5}`, { 
+        method: "GET",
+        headers: {
+            'Authorization': `Bearer ${JSON.parse(localStorage.getItem("user")).token}`,}
+        }).then( r=>{
+            console.log("yo")
+            return r.url
+        })
+        
+    }
     return (
       <>
         <Card className={classes.card}>
           <CardMedia
             className={classes.cardMedia}
-            //image={imageUrl}
+            image={getImage()}
             title="Image title"
           />
           </Card>
+          <img
+            id="img"
+            style={{
+                display: "block"
+            }}
+            src={getImage()}
+            >
+            </img>
       </>
     );
   };

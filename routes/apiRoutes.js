@@ -68,13 +68,19 @@ Router.post('/files/:id', upload.single('img'),
   
   res.status(201).send()
 })
-Router.get('/userFiles/:id', (req,res) => {
-  console.log("yo")
-  res.send(db.user.find({_id: req.params.id,}))
+Router.get('/users/:id', (req,res) => {
+  console.log("yot")
+  console.log(req.params.id)
+  db.User.findById(req.params.id).then(user => {
+    console.log(user)
+    res.send(user)
+  })
+  //res.end("yo")
 })
-Router.get('/files/:filename', (req, res) => {
 
-  gfs.files.findOne({ filename: req.params.filename }, (err, file) => {
+Router.get('/files/:filename', (req, res) => {
+  console.log("here")
+  gfs.files.findOne({ md5: req.params.filename }, (err, file) => {
     // Check if file
     console.log(file)
     if (!file || file.length === 0) {
