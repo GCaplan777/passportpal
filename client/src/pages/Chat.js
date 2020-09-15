@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { Alert } from '@material-ui/lab';
 import Icon from '@material-ui/core/Icon';
 import {
   Input,
@@ -13,7 +14,6 @@ import {
   Avatar,
   Card,
   CardContent,
-  Button,
 } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import io from 'socket.io-client';
@@ -32,18 +32,22 @@ const useStyles = makeStyles((theme) => ({
     display: 'inline',
   },
 
-  aside: {
-    alignSelf: 'flex-start',
-  },
   button: {
     margin: theme.spacing(1),
+  },
+
+  alert: {
+    position: 'absolute',
+    transition: 'all 0.3s',
+    left: '50%',
+    transform: 'translateX(-50%)',
   },
 }));
 
 const Chat = () => {
   const classes = useStyles();
   const [chats, setChats] = useState([]);
-  const [participants, setParticipants] = useState([]);
+  const [alert, setAlert] = useState(null);
 
   const msgRef = useRef();
 
@@ -55,12 +59,28 @@ const Chat = () => {
     });
 
     socket.on('join', (name) => {
-      setParticipants((participants) => [...participants, name]);
+      setAlert({ type: 'success', message: `${name} joined the chat` });
+
+      setTimeout(() => {
+        setAlert(null);
+      }, 3000);
+    });
+
+    socket.on('left', (name) => {
+      setAlert({ type: 'info', message: `${name} left the chat` });
+
+      setTimeout(() => {
+        setAlert(null);
+      }, 3000);
     });
 
     socket.on('message', (message) => {
       setChats((chats) => [...chats, message]);
     });
+
+    return () => {
+      socket.emit('left', JSON.parse(localStorage.getItem('user')).name);
+    };
   }, []);
 
   const getFirstName = (name) => {
@@ -74,47 +94,46 @@ const Chat = () => {
       name: getFirstName(JSON.parse(localStorage.getItem('user')).name),
       message: msgRef.current.value,
     });
+
     msgRef.current.value = '';
+
+    const main = document.querySelector('#main');
+
+    main.scrollTop = main.scrollHeight - main.clientHeight;
   };
 
   return (
     <>
       <Card>
-        <CardContent className={classes.root}>
-          <List className={classes.aside}>
-            <h1>Current Participants</h1>
-            {participants.length >= 0 &&
-              participants.map((participant) => (
-                <ListItem button divider>
-                  <ListItemText primary={participant} />
-                </ListItem>
-              ))}
-          </List>
+        <CardContent id="main" className={classes.root}>
+          {alert && (
+            <Alert className={classes.alert} severity={alert.type}>
+              {alert.message}
+            </Alert>
+          )}
           <List>
             {chats.length !== 0 &&
               chats.map(({ name, message }, index) => (
-                <>
-                  <ListItem alignItems="flex-start" key={index}>
-                    <ListItemAvatar>
-                      <Avatar>{name[0].toUpperCase()}</Avatar>
-                    </ListItemAvatar>
-                    <ListItemText
-                      primary={name}
-                      secondary={
-                        <React.Fragment>
-                          <Typography
-                            component="span"
-                            variant="body2"
-                            className={classes.inline}
-                            color="textPrimary"
-                          >
-                            {message}
-                          </Typography>
-                        </React.Fragment>
-                      }
-                    />
-                  </ListItem>
-                </>
+                <ListItem alignItems="flex-start" key={index}>
+                  <ListItemAvatar>
+                    <Avatar>{name[0].toUpperCase()}</Avatar>
+                  </ListItemAvatar>
+                  <ListItemText
+                    primary={name}
+                    secondary={
+                      <React.Fragment>
+                        <Typography
+                          component="span"
+                          variant="body2"
+                          className={classes.inline}
+                          color="textPrimary"
+                        >
+                          {message}
+                        </Typography>
+                      </React.Fragment>
+                    }
+                  />
+                </ListItem>
               ))}
           </List>
         </CardContent>
@@ -123,25 +142,18 @@ const Chat = () => {
             <FormControl margin="normal">
               <InputLabel htmlFor="msg">Message</InputLabel>
               <Input
+                type="submit"
                 id="msg"
                 inputRef={msgRef}
                 name="message"
                 type="text"
                 placeholder="message"
                 required={true}
+                autoComplete="off"
+                variant="outlined"
               />
             </FormControl>
           </FormGroup>
-
-          <Button
-            variant="contained"
-            color="primary"
-            className={classes.button}
-            endIcon={<Icon>send</Icon>}
-            type="submit"
-          >
-            Send
-          </Button>
         </form>
       </Card>
     </>
