@@ -19,11 +19,7 @@ export default [
     title: "Chat",
     description: "Planes? Trains? Automobiles? Put your tickets here",
     imageUrl:
-<<<<<<< HEAD
-      "https://cdn2.hubspot.net/hubfs/2497371/Attendify_Blog/1905_Feature-Launch-Group-Chat1905_Feature-Launch-Group-Chat1905_Feature-Launch-Group-Chat-1.gif",
-=======
       "https://lp-cms-production.imgix.net/news/2019/07/Sidekick-3.jpg?auto=format&fit=crop&sharp=10&vib=20&ixlib=react-8.6.4&w=850",
->>>>>>> 5a0407a1661fb01eb683bb8ab48d08fad2ca5842
     route: "/chat",
     routeText: "Start Your Group Chat",
   },
