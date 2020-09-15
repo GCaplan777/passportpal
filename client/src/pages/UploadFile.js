@@ -44,15 +44,7 @@ export default class UploadFile extends Component {
                 'Authorization': `Bearer ${JSON.parse(localStorage.getItem("user")).token}`,}
          }).then(
             r => { console.log(r); });
-            fetch(`/api/files/${file[0].name}`, { 
-                method: "GET",
-                headers: {
-                    'Authorization': `Bearer ${JSON.parse(localStorage.getItem("user")).token}`,}
-             }).then( r=>{
-                console.log(r)
-                document.getElementById('img')
-        .setAttribute('src', r)}
-             )};
+             };
 
 
     render() {
