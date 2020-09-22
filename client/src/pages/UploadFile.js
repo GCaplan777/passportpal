@@ -82,7 +82,7 @@ export default class UploadFile extends Component {
                 className="custom-file-input"
                 id="inputGroupFile01"
                 aria-describedby="inputGroupFileAddon01"
-                onClick={this.onFileChange}
+                
               />
               <label className="custom-file-label" htmlFor="inputGroupFile01" onChange={this.onFileChange}>
                 {" "}
