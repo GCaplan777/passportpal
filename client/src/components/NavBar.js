@@ -34,16 +34,16 @@ export default function NavBar() {
       <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="m-auto" text-white>
           <Nav.Link>
-            <Link to="/packinglist"> Your Packing List</Link>
+            <Link to="/packinglist" className="white-color"> Your Packing List</Link>
           </Nav.Link>
           <Nav.Link>
-            <Link to="/upload"> Upload Travel Documents</Link>
+            <Link to="/upload" className="white-color"> Upload Travel Documents</Link>
           </Nav.Link>
           <Nav.Link>
-            <Link to="/documents"> View Travel Documents</Link>
+            <Link to="/documents" className="white-color"> View Travel Documents</Link>
           </Nav.Link>
           <Nav.Link>
-            <Link to="/chat"> Chat</Link>
+            <Link to="/chat" className="white-color"> Chat</Link>
           </Nav.Link>
           <NavDropdown.Divider />
           <NavDropdown
@@ -52,10 +52,10 @@ export default function NavBar() {
             style={{ color: "white" }}
           >
             <NavDropdown.Item>
-              <Link to="/login"> Login</Link>
+              <Link to="/login" className="white-color"> Login</Link>
             </NavDropdown.Item>
             <NavDropdown.Item>
-              <Link to="/register"> Register</Link>
+              <Link to="/register" className="white-color"> Register</Link>
             </NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item onClick={() => logout()}>Logout</NavDropdown.Item>
