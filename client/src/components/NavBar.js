@@ -5,8 +5,8 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropDown";
 import Image from "react-bootstrap/Image";
 import authContext from "../context/auth/authContext";
-import logo from "../img/logo.jpeg";
-import "../img/logo.jpeg";
+import logo from "../logo.jpeg";
+import "../logo.jpeg";
 import "../App.css";
 
 export default function NavBar() {

@@ -25,7 +25,7 @@ const Login = () => {
 
   return (
     <>
-      <Container component="main" maxWidth="xs">
+      <Container className="login" component="main" maxWidth="xs">
         <p>Please enter your information to login:</p>
         <form onSubmit={handleSumbit}>
           <input type="text" placeholder="email" ref={emailRef} />
