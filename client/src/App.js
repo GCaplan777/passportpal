@@ -11,7 +11,7 @@ import UploadFile from "./pages/UploadFile";
 import ListUser from "./pages/ListUser";
 import ListGroup from "./pages/ListGroup";
 import NavBar from "./components/NavBar";
-// import Footer from "./components/Footer/Footer";
+import Footer from "./components/Footer/Footer";
 import Documents from "./pages/Documents";
 import Container from "react-bootstrap/Container";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -37,7 +37,7 @@ function App() {
             <PrivateRoute exact path="/documents" component={Documents} />
           </Switch>
         </Router>
-        {/* <Footer /> */}
+        <Footer />
       </Container>
     </AuthState>
   );

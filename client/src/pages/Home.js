@@ -1,7 +1,6 @@
 import React from "react";
 import DashCard from "../components/DashCard";
 import Hero from "../components/Hero";
-import Footer from "../components/Footer/Footer";
 
 const Home = () => {
   return (
@@ -9,7 +8,6 @@ const Home = () => {
       <div class="container bg-white">
         <Hero />
         <DashCard />
-        <Footer />
       </div>
     </>
   );
