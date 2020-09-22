@@ -13,15 +13,11 @@ function Footer() {
         >
           <img src="img/icons/github.png" alt="GitHub" className="icon" />
         </a>
-        <a href="#" target="_blank" rel="noopener noreferrer">
-          <img src="img/icons/linkedin.png" alt="LinkedIn" className="icon" />
-        </a>
+        
         <a href="#" target="_blank" rel="noopener noreferrer">
           <img src="img/icons/facebook.png" alt="FaceBook" className="icon" />
         </a>
-        <a href="#" target="_blank" rel="noopener noreferrer">
-          <img src="img/icons/IG.png" alt="Instagram" className="icon" />
-        </a>
+        
         {/* <a
         href="https://www.youtube.com/channel/UCwFNHvQxnZfsfUm8V9B98kw?view_as=subscriber"
         target="_blank"
