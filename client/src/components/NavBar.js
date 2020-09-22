@@ -8,6 +8,7 @@ import authContext from "../context/auth/authContext";
 import logo from "../logo.jpeg";
 import "../logo.jpeg";
 import "../App.css";
+import "./Navbar.css";
 
 export default function NavBar() {
   const { logout, user } = useContext(authContext);
