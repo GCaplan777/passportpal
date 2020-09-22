@@ -1,7 +1,7 @@
 import React, { useContext, useRef, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import authContext from "../context/auth/authContext";
-import Container from "@material-ui/core/Container";
+import Hero from "../components/Hero";
 
 const Login = () => {
   const { login, user } = useContext(authContext);
@@ -25,14 +25,19 @@ const Login = () => {
 
   return (
     <>
-      <Container className="login" component="main" maxWidth="xs">
-        <p>Please enter your information to login:</p>
-        <form onSubmit={handleSumbit}>
-          <input type="text" placeholder="email" ref={emailRef} />
-          <input type="text" placeholder="password" ref={passwordRef} />
-          <button type="submit">Submit</button>
-        </form>
-      </Container>
+      <div class="container bg-white">
+        <Hero />
+        <p className="text-center bg-white">
+          Please enter your information to login:
+        </p>
+        <div class="row justify-content-center align-items-center pb-5 mb-5">
+          <form onSubmit={handleSumbit}>
+            <input type="text" placeholder="email" ref={emailRef} />
+            <input type="text" placeholder="password" ref={passwordRef} />
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
     </>
   );
 };
