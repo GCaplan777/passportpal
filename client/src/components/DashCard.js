@@ -14,9 +14,9 @@ const DashCard = () => {
   return (
     <>
       <Container>
-        <Row>
+        <Row className="pb-5" carddiv>
           {DashboardList.map((info) => (
-            <Col md={6}>
+            <Col md={6} className="p-3">
               <Card style={{ width: "510" }}>
                 <Card.Img
                   variant="top"
@@ -24,11 +24,10 @@ const DashCard = () => {
                   src={info.imageUrl}
                 />
                 <Card.Body className="text-center">
-                  <Card.Title>{info.title}</Card.Title>
-                  <Card.Text>{info.description}</Card.Text>
-                  <Button variant="secondary" text-white>
+                  <Button variant="secondary" text-white block>
                     <Link to={info.route}> {info.routeText} </Link>
                   </Button>
+                  <Card.Text>{info.description}</Card.Text>
                 </Card.Body>
               </Card>
             </Col>

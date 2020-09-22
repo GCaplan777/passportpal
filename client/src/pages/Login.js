@@ -1,7 +1,7 @@
-import React, { useContext, useRef, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
-import authContext from '../context/auth/authContext';
-import Container from '@material-ui/core/Container';
+import React, { useContext, useRef, useEffect } from "react";
+import { useHistory } from "react-router-dom";
+import authContext from "../context/auth/authContext";
+import Container from "@material-ui/core/Container";
 
 const Login = () => {
   const { login, user } = useContext(authContext);
@@ -11,7 +11,7 @@ const Login = () => {
 
   useEffect(() => {
     if (user) {
-      history.push('/');
+      history.push("/");
     }
   }, [user, history]);
 

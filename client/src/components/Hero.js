@@ -4,37 +4,21 @@ import Button from "react-bootstrap/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
-import Container from "@material-ui/core/Container";
-
-// const useStyles = makeStyles((theme) => ({
-//   icon: {
-//     marginRight: theme.spacing(2),
-//   },
-//   heroContent: {
-//     background: 'linear-gradient(45deg, #FE6B8B 10%, #FF8E53 60%)',
-//     backgroundColor: theme.palette.background.paper,
-//     padding: theme.spacing(8, 0, 6),
-//   },
-//   heroButtons: {
-//     marginTop: theme.spacing(4),
-//   },
-// }));
+import Container from "react-bootstrap/Container";
 
 export default function Hero() {
-  // const classes = useStyles();
-
   return (
-    <>
-      <Jumbotron>
-        <h1>Hello, world!</h1>
-        <p>
-          This is a simple hero unit, a simple jumbotron-style component for
-          calling extra attention to featured content or information.
-        </p>
-        <p>
-          <Button variant="primary">Learn more</Button>
-        </p>
+    <Container fluid>
+      <Jumbotron
+        className="text-center text-white mt-5 jumbotron"
+        style={{
+          backgroundImage: `url(https://images.pexels.com/photos/4254144/pexels-photo-4254144.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260)`,
+          backgroundSize: "cover",
+        }}
+      >
+        <h1 className="display1 text-lead">Passport Pal</h1>
+        <h3>Pack it up, Pack it in, Let us Begin!</h3>
       </Jumbotron>
-    </>
+    </Container>
   );
 }

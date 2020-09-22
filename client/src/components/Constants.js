@@ -20,7 +20,7 @@ export default [
   {
     id: 3,
     title: "Chat",
-    description: "Chat away with your group",
+    description: "Chat and plan in real time!",
     imageUrl:
       "https://lp-cms-production.imgix.net/news/2019/07/Sidekick-3.jpg?auto=format&fit=crop&sharp=10&vib=20&ixlib=react-8.6.4&w=850",
     route: "/chat",
@@ -28,7 +28,7 @@ export default [
   },
   {
     id: 4,
-    title: "Documents",
+    title: "Travel Documents",
     description: "Planes? Trains? Automobiles? Put your tickets here",
     imageUrl:
       "https://images.pexels.com/photos/4127646/pexels-photo-4127646.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260",
