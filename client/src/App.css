@@ -36,7 +36,9 @@ body {
     background: #9BBEC7;
     border-bottom: 3px solid #403D58;
 }
-
+.white-color {
+    color: white;
+}
 .btn-block {
     background: #403D58;
 }
