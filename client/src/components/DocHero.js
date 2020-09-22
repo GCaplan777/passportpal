@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "react-bootstrap/Container";
 
-export default function Hero() {
+export default function DocHero() {
   return (
     <Container fluid>
       <Jumbotron
@@ -16,8 +16,8 @@ export default function Hero() {
           backgroundSize: "cover",
         }}
       >
-        <h1 className="display1 text-lead">Passport Pal</h1>
-        <h3>Pack it up, Pack it in, Let us Begin!</h3>
+        <h1 className="display1 text-lead">Image Uploader</h1>
+        <h3>Upload and access your travel documents</h3>
       </Jumbotron>
     </Container>
   );

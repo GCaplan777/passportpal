@@ -1,55 +1,24 @@
-import React from 'react';
-import Button from '@material-ui/core/Button';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import Grid from '@material-ui/core/Grid';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
+import React from "react";
+import Jumbotron from "react-bootstrap/Jumbotron";
+import Button from "react-bootstrap/Button";
+import CssBaseline from "@material-ui/core/CssBaseline";
+import Typography from "@material-ui/core/Typography";
+import { makeStyles } from "@material-ui/core/styles";
+import Container from "react-bootstrap/Container";
 
-const useStyles = makeStyles((theme) => ({
-  icon: {
-    marginRight: theme.spacing(2),
-  },
-  heroContent: {
-    background: 'linear-gradient(45deg, #FE6B8B 10%, #FF8E53 60%)',
-    backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
-  },
-  heroButtons: {
-    marginTop: theme.spacing(4),
-  },
-}));
-
-export default function ListHero() {
-  const classes = useStyles();
-
+export default function Hero() {
   return (
-    <>
-      <CssBaseline />
-      <div className={classes.heroContent}>
-        <Container maxWidth="sm">
-          <Typography
-            component="h1"
-            variant="h2"
-            align="center"
-            color="textPrimary"
-            gutterBottom
-          >
-            Keep Track of Your Pack
-          </Typography>
-          <Typography
-            variant="h5"
-            align="center"
-            color="textSecondary"
-            paragraph
-          >
-            Pack it up, Pack it in, Let us Begin!
-          </Typography>
-        </Container>
-      </div>
-    </>
+    <Container fluid>
+      <Jumbotron
+        className="text-center text-white mt-5 jumbotron"
+        style={{
+          backgroundImage: `url(https://images.pexels.com/photos/4254144/pexels-photo-4254144.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260)`,
+          backgroundSize: "cover",
+        }}
+      >
+        <h1 className="display1 text-lead"></h1>
+        <h3>Keep Track of Your Pack</h3>
+      </Jumbotron>
+    </Container>
   );
 }

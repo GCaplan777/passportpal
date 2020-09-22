@@ -1,0 +1,77 @@
+/* body {
+    background: #9BBEC7;
+}
+
+@media screen and (min-width: 576px) {
+    body {
+        background: #5EFC8D;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    body {
+        background: #FFC09F;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    body {
+        background: #606C38;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    body {
+        background: #403D58;
+    }
+
+} */
+
+body {
+    background: #606C38;
+}
+
+.navbar,
+.main-footer {
+    background: #9BBEC7;
+    border-bottom: 3px solid #403D58;
+}
+
+.btn-block {
+    background: #403D58;
+}
+
+a {
+    color: #FFF;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+#collasible-nav-dropdown {
+    color: #FFF;
+}
+
+a:hover,
+:visited {
+    color: #FFF
+}
+
+.dropdown-menu {
+    background-color: lightskyblue;
+}
+
+.rounded {
+    height: 50px;
+    width: 50px;
+}
+
+.carddiv {
+    min-height: 80vh;
+}
+
+
+
+
+/* .jumbotron {
+    font-family: 'Roboto Slab', serif;
+} */

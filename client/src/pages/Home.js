@@ -1,12 +1,14 @@
-import React from 'react';
-import DashBoard from '../components/Dashboard';
-import Hero from '../components/Hero';
+import React from "react";
+import DashCard from "../components/DashCard";
+import Hero from "../components/Hero";
 
 const Home = () => {
   return (
     <>
-      <Hero />
-      <DashBoard />
+      <div class="container bg-white">
+        <Hero />
+        <DashCard />
+      </div>
     </>
   );
 };
