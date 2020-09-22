@@ -40,7 +40,9 @@ body {
 .btn-block {
     background: #403D58;
 }
-
+.navbar-light .navbar-nav .nav-link {
+    color: white;
+}
 a {
     color: #FFF;
     margin-left: 10px;

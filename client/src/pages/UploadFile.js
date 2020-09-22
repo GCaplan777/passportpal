@@ -11,11 +11,15 @@ export default class UploadFile extends Component {
 
     this.state = {
       profileImg: "",
+      title: "Choose file",
     };
   }
 
   onFileChange(e) {
-    this.setState({ profileImg: e.target.files[0] });
+      e.preventDefault();
+    this.setState({ profileImg: e.target.files[0],
+        title: e.target.files[0].originalname });
+    console.log(this.state)
   }
 
   onSubmit(e) {
@@ -78,10 +82,11 @@ export default class UploadFile extends Component {
                 className="custom-file-input"
                 id="inputGroupFile01"
                 aria-describedby="inputGroupFileAddon01"
+                onClick={this.onFileChange}
               />
-              <label className="custom-file-label" htmlFor="inputGroupFile01">
+              <label className="custom-file-label" htmlFor="inputGroupFile01" onChange={this.onFileChange}>
                 {" "}
-                Choose file{" "}
+                {this.state.title}{" "}
               </label>
             </div>
           </div>
